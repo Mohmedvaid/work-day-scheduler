@@ -3,41 +3,67 @@ $(document).ready(function () {
     var arr = []
 
     function buildArr() {
+        // check if stored array in local storage, if not then create the array
+        // create the initial array
+        // covert 24 to 12 hour 
 
         for (var i = 0; i < 9; i++) {
-            if (i + 9 < 12) {
-                arr.push({
-                    hour: `${i+9} am`,
-                    events: ["abc"]
-                })
+
+            if (JSON.parse(localStorage.getItem('arr'))) {
+                arr = JSON.parse(localStorage.getItem('arr'));
             } else {
-                if (i + 9 == 12) {
+
+
+                if (i + 9 < 12) {
                     arr.push({
-                        hour: `${i+9} pm`,
-                        events: ["abc"]
+                        hour: `${i+9} am`,
+                        events: [""]
                     })
                 } else {
-                    arr.push({
-                        hour: `${(i+9)-12} pm`,
-                        events: ["abc"]
-                    })
+                    if (i + 9 == 12) {
+                        arr.push({
+                            hour: `${i+9} pm`,
+                            events: [""]
+                        })
+                    } else {
+                        arr.push({
+                            hour: `${(i+9)-12} pm`,
+                            events: [""]
+                        })
+                    }
+
                 }
-
             }
-            $(`.container`).append(`<h1>Time: ${arr[i].hour}</h1>`);
-            $(`.container`).append(`<h3>Event: ${arr[i].events}</h3>`);
+            $(`.container`).append(`<h1 class= "hours">Time: ${arr[i].hour}</h1>`);
+            $(`.container`).append(`<input class="events-input${i}" value= ${arr[i].events}><button class="save-btn" id="${i}">Save</button>`);
+
         }
-        //console.log(arr[i])
-
     }
-
-    // check if stored array in local storage, if not then create the array
-    // create the initial array
-    // covert 24 to 12 hour 
 
 
 
     function addEvent() {
+        $(`.save-btn`).on('click',function(e) {
+            var clickID= (e.target.id);
+            console.log(clickID)
+            var input = $(`.events-input${clickID}`).val()
+            console.log(input)
+            arr[clickID].events = [];
+            arr[clickID].events.push(input)
+            localStorage.setItem('arr', JSON.stringify(arr));
+
+            console.log(arr)
+
+            
+        })
+
+
+        // $(`.save-button`).on('click', function() {
+        //     arr.insert($())
+
+        //     localStorage.setItem('arr', JSON.stringify(arr));
+
+        // })
         //add events to the array for that hour
         // store it to local storage
     }
@@ -50,6 +76,10 @@ $(document).ready(function () {
 
     buildArr();
     render();
+    addEvent();
+
+
+
 
     //Ready Ends
 });
