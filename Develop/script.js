@@ -7,6 +7,7 @@ $(document).ready(function () {
         // create the initial array
         // covert 24 to 12 hour 
 
+
         for (var i = 0; i < 9; i++) {
 
             if (JSON.parse(localStorage.getItem('arr'))) {
@@ -17,25 +18,29 @@ $(document).ready(function () {
                 if (i + 9 < 12) {
                     arr.push({
                         hour: `${i+9} am`,
-                        events: [""]
+                        events: ""
                     })
                 } else {
                     if (i + 9 == 12) {
                         arr.push({
                             hour: `${i+9} pm`,
-                            events: [""]
+                            events: ""
                         })
                     } else {
                         arr.push({
                             hour: `${(i+9)-12} pm`,
-                            events: [""]
+                            events: ""
                         })
                     }
 
                 }
             }
-            $(`.container`).append(`<h1 class= "hours">Time: ${arr[i].hour}</h1>`);
-            $(`.container`).append(`<input class="events-input${i}" value= ${arr[i].events}><button class="save-btn" id="${i}">Save</button>`);
+
+            $(`.container`).append(`<div class="whole-event" id="whole-event${i}"></div>`)
+            $(`#whole-event${i}`).append(`<p class= "hours">${arr[i].hour}</p>`);
+
+            $(`#whole-event${i}`).append(`<input id = "input-box"class="events-input${i}" value= '${arr[i].events}'><button class="save-btn fa fa-save" id="${i}"></button>`);
+
 
         }
     }
@@ -43,33 +48,39 @@ $(document).ready(function () {
 
 
     function addEvent() {
-        $(`.save-btn`).on('click',function(e) {
-            var clickID= (e.target.id);
-            console.log(clickID)
+        $(`.save-btn`).on('click', function (e) {
+            var clickID = (e.target.id);
             var input = $(`.events-input${clickID}`).val()
-            console.log(input)
+
             arr[clickID].events = [];
             arr[clickID].events.push(input)
             localStorage.setItem('arr', JSON.stringify(arr));
         })
     }
 
+    //render funtion change the background color of the hours according to past, present and future
     function render() {
-        for(var i = 0; i<=8;i++){
-            console.log(`i=${i}`)
-            if(i+9< moment().hour()){
-                $(`.events-input${i}`).css("background-color", "grey")
-            }
-            else{
-                $(`.events-input${i}`).css("background-color", "green")
+        for (var i = 0; i <= 8; i++) {
+            if (i + 9 < moment().hour()) {
+                $(`.events-input${i}`).css("background-color", "#cccccc")
+            } else {
+                $(`.events-input${i}`).css("background-color", "#00e200")
             }
 
-            if(moment().hour()==i+9){
-                console.log(`current hour: ${moment().hour()}i=${i+9}`)
+            if (moment().hour() == i + 9) {
+
                 $(`.events-input${i}`).css("background-color", "red")
             }
 
         }
+
+        //Getting locale date
+        var m = moment();
+        //Formating and storing date in variable
+        var date = `${m.format("dddd")}, ${m.format("MMMM Do")}`
+        //Appending date in Jumbotron
+        $(`#currentDay`).append(date)
+
 
 
         // loop though hours
@@ -77,6 +88,7 @@ $(document).ready(function () {
         // loop thru every events and display them
     }
 
+    //Calling methods
     buildArr();
     render();
     addEvent();
