@@ -51,24 +51,27 @@ $(document).ready(function () {
             arr[clickID].events = [];
             arr[clickID].events.push(input)
             localStorage.setItem('arr', JSON.stringify(arr));
-
-            console.log(arr)
-
-            
         })
-
-
-        // $(`.save-button`).on('click', function() {
-        //     arr.insert($())
-
-        //     localStorage.setItem('arr', JSON.stringify(arr));
-
-        // })
-        //add events to the array for that hour
-        // store it to local storage
     }
 
     function render() {
+        for(var i = 0; i<=8;i++){
+            console.log(`i=${i}`)
+            if(i+9< moment().hour()){
+                $(`.events-input${i}`).css("background-color", "grey")
+            }
+            else{
+                $(`.events-input${i}`).css("background-color", "green")
+            }
+
+            if(moment().hour()==i+9){
+                console.log(`current hour: ${moment().hour()}i=${i+9}`)
+                $(`.events-input${i}`).css("background-color", "red")
+            }
+
+        }
+
+
         // loop though hours
         // determine if hour is greater than or equal to current hour
         // loop thru every events and display them
