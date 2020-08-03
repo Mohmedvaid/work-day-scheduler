@@ -11,12 +11,11 @@ The work day scheduler is a simple calender that allows users to schedule, edit 
 https://mohmedvaid.github.io/work-day-scheduler/Develop/
 
 ## Credits
+Bootstrap v4.4.1 https://getbootstrap.com/
 
-<img alt="Bootstrap Logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg" width="30" height="30"> Bootstrap v4.4.1 https://getbootstrap.com/
+JQuery v3.4.1 https://jquery.com/
 
-<img alt="JQuery Logo" src="assets/images/JQuery-logo.png" width="28" height="30"> JQuery v3.4.1 https://jquery.com/
-
-<img alt="Moment.js Logo" src="assets/images/momentjs-logo.png" width="30" height="30"> Moment.js v2.24.0 https://momentjs.com/
+Moment.js v2.24.0 https://momentjs.com/
 
 Clock - https://cssanimation.rocks/clocks/ | https://codepen.io/JWardee/pen/XmMvGK
 
