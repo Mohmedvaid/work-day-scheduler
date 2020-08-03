@@ -1,46 +1,23 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# work-day-planner v0.2.0
 
-Create a simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+<img alt="Work Day Scheduler" src="Assets/Work-day-scheduler.png" width="600">
 
-You'll need to use the [Moment.js](https://momentjs.com/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Moment.js in the browser.
+## Description
 
-## User Story
+The work day scheduler is a simple calender that allows users to schedule, edit and delete events while saving them in local storage. The user the has the ability to have a daily planner and save events to local storage. This uses moment js to get the current date and time. The app sets the day/time using moment.js and displays current weekday, date and time in the heading. If the current time is past the event time the event will shade out. If the event is currently going on the event turns red and if the event is in the future the event will be green.
 
-```
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
 
-## Acceptance Criteria
+## Usage
+https://mohmedvaid.github.io/work-day-scheduler/Develop/
 
-```
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
-```
+## Credits
 
-The following animation demonstrates the application functionality:
+<img alt="Bootstrap Logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg" width="30" height="30"> Bootstrap v4.4.1 https://getbootstrap.com/
 
-![day planner demo](./Assets/05-third-party-apis-homework-demo.gif)
+<img alt="JQuery Logo" src="assets/images/JQuery-logo.png" width="28" height="30"> JQuery v3.4.1 https://jquery.com/
 
-## Review
+<img alt="Moment.js Logo" src="assets/images/momentjs-logo.png" width="30" height="30"> Moment.js v2.24.0 https://momentjs.com/
 
-You are required to submit the following for review:
+Clock - https://cssanimation.rocks/clocks/ | https://codepen.io/JWardee/pen/XmMvGK
 
-* The URL of the deployed application.
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.

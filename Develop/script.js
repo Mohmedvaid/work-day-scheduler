@@ -1,6 +1,9 @@
 $(document).ready(function () {
     //Ready begins
-    var arr = []
+    var arr = [
+        hours
+
+    ]
 
     function buildArr() {
         // check if stored array in local storage, if not then create the array
