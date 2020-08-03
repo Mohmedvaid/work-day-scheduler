@@ -1,4 +1,4 @@
-# work-day-planner v0.2.0
+# Work Day Scheduler
 
 <img alt="Work Day Scheduler" src="Assets/Work-day-scheduler.png" width="600">
 
